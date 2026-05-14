@@ -82,9 +82,6 @@ function renderWidget(ctx: ExtensionContext, snapshot: TmuxSnapshot): void {
 			if (snapshot.error) {
 				return [rightAlign(theme.fg("error", "tmux: error"), width)];
 			}
-			if (!snapshot.serverRunning) {
-				return [rightAlign(theme.fg("dim", "tmux: 0 sessions"), width)];
-			}
 
 			const color = snapshot.sessions > 0 ? "success" : "dim";
 			const lines = [rightAlign(theme.fg(color, `tmux: ${snapshot.sessions}`), width)];
