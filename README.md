@@ -7,8 +7,6 @@ A Pi extension package that shows tmux status in a right-aligned widget above th
 - shows `tmux: N` above the input area
 - shows tmux session names below the count
 - refreshes automatically every 5 seconds
-- adds `/tmux-status`
-- registers the `tmux_status` tool
 
 ## Package layout
 
@@ -98,29 +96,11 @@ Shows a right-aligned widget above the typing bar, for example:
                session-two
 ```
 
-### Slash command
-
-```text
-/tmux-status
-```
-
-Shows the current tmux summary.
-
-### Tool
-
-The extension also registers:
-
-- `tmux_status`
-
-Use `tmux_status` when the user asks how many tmux sessions are currently running or wants the current tmux state.
-
 ## What it reports
 
 - whether `tmux` is installed
 - whether the tmux server is running
 - number of tmux sessions
-- number of tmux windows
-- number of tmux panes
 - session names
 
 ## Development notes
@@ -130,7 +110,6 @@ This package follows the Pi extension/package docs:
 - extensions are declared through the `pi.extensions` manifest in `package.json`
 - core Pi packages are listed in `peerDependencies`
 - the extension exports a default `ExtensionAPI` factory
-- the custom tool includes `promptSnippet` and explicit `promptGuidelines`
 
 ## License
 

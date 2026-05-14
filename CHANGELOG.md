@@ -5,5 +5,4 @@
 - initial tmux status extension
 - shows a right-aligned widget above the typing bar
 - shows tmux session count and session names
-- adds `/tmux-status`
-- registers the `tmux_status` tool
+- refreshes automatically every 5 seconds
