@@ -99,7 +99,6 @@ Shows a right-aligned widget above the typing bar, for example:
 ## What it reports
 
 - whether `tmux` is installed
-- whether the tmux server is running
 - number of tmux sessions
 - session names
 

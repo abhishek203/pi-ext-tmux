@@ -3,7 +3,6 @@ import { truncateToWidth, visibleWidth } from "@earendil-works/pi-tui";
 
 type TmuxSnapshot = {
 	available: boolean;
-	serverRunning: boolean;
 	sessions: number;
 	sessionNames: string[];
 	error?: string;
@@ -21,7 +20,6 @@ async function getTmuxSnapshot(pi: ExtensionAPI, signal?: AbortSignal): Promise<
 	if (hasTmux.code !== 0) {
 		return {
 			available: false,
-			serverRunning: false,
 			sessions: 0,
 			sessionNames: [],
 		};
@@ -37,7 +35,6 @@ async function getTmuxSnapshot(pi: ExtensionAPI, signal?: AbortSignal): Promise<
 		if (/no server running/i.test(combined)) {
 			return {
 				available: true,
-				serverRunning: false,
 				sessions: 0,
 				sessionNames: [],
 			};
@@ -45,7 +42,6 @@ async function getTmuxSnapshot(pi: ExtensionAPI, signal?: AbortSignal): Promise<
 
 		return {
 			available: true,
-			serverRunning: false,
 			sessions: 0,
 			sessionNames: [],
 			error: combined || `tmux exited with code ${sessionsResult.code}`,
@@ -59,7 +55,6 @@ async function getTmuxSnapshot(pi: ExtensionAPI, signal?: AbortSignal): Promise<
 
 	return {
 		available: true,
-		serverRunning: true,
 		sessions: sessionNames.length,
 		sessionNames,
 	};
